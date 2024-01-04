@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:home_sam/models/menu_model.dart';
@@ -144,7 +146,7 @@ class _listMenu extends StatelessWidget {
           height: 10,
         ),
         GridView.builder(
-          // scrollDirection: Axis.vertical,
+          // scrollDirection: Axis.vertical
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4, // Number of columns
@@ -154,28 +156,33 @@ class _listMenu extends StatelessWidget {
           ),
           itemCount: menu.length,
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(color: Colors.transparent),
-              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        border:
-                            Border.all(style: BorderStyle.solid, width: 0.1),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    width: 60,
-                    height: 60,
-                    child: Image.asset(
-                      menu[index].photos,
+            return GestureDetector(
+              onTap: () => Navigator.push(context, route),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.transparent),
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(style: BorderStyle.solid, width: 0.1),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      width: 60,
+                      height: 60,
+                      child: Image.asset(
+                        menu[index].photos,
+                      ),
                     ),
-                  ),
-                  Text(
-                    menu[index].name,
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
+                    Expanded(
+                      child: Text(
+                        menu[index].name,
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },
