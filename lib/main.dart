@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _seachField(),
+                searchField,
                 SizedBox(height: 30),
                 _listMenu(menu: menu),
                 SizedBox(height: 30),
