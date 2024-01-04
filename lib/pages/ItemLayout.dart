@@ -5,10 +5,5 @@ class ItemLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 200,
-      color: Colors.red,
-    );
-  }
+    return (Scaffold(appBar: , body: Container() ,)) 
 }
